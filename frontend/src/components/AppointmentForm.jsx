@@ -160,6 +160,7 @@ const AppointmentForm = () => {
                 return (
                   <option value={depart} key={index}>
                     {depart}
+                    
                   </option>
                 );
               })}
@@ -178,7 +179,7 @@ const AppointmentForm = () => {
                 .filter((doctor) => doctor.doctorDepartment === department)
                 .map((doctor, index) => (
                   <option
-                    value={`${doctor.firstName} ${doctor.lastName}`}
+                    value={`${doctor.firstName}  ${doctor.lastName}`}
                     key={index}
                   >
                     {doctor.firstName} {doctor.lastName}

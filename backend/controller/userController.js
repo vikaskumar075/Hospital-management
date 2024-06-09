@@ -37,6 +37,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     role: "Patient",
   });
   generateToken(user, "User Registered!", 200, res);
+  // res.status(200).json({success:true,message:"User registered"})
 });
 
 export const login = catchAsyncErrors(async (req, res, next) => {
@@ -73,7 +74,7 @@ export const addNewAdmin = catchAsyncErrors(async (req, res, next) => {
     !email ||
     !phone ||
     !nic ||
-    !dob ||
+    !dob || 
     !gender ||
     !password
   ) {
@@ -146,6 +147,8 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
   const cloudinaryResponse = await cloudinary.uploader.upload(
     docAvatar.tempFilePath
   );
+  // console.log(cloudinaryResponse);
+  // console.log(process.env.CLOUDINARY_API_SECRET);
   if (!cloudinaryResponse || cloudinaryResponse.error) {
     console.error(
       "Cloudinary Error:",
@@ -180,7 +183,7 @@ export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
 
 export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
   const doctors = await User.find({ role: "Doctor" });
-  res.status(200).json({
+  res.status(200).json({ 
     success: true,
     doctors,
   });

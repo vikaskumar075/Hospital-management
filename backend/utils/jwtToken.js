@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 export const generateToken = (user, message, statusCode, res) => {
   const token = user.generateJsonWebToken();
   // Determine the cookie name based on the user's role
@@ -7,7 +8,7 @@ export const generateToken = (user, message, statusCode, res) => {
     .status(statusCode)
     .cookie(cookieName, token, {
       expires: new Date(
-        Date.now() + process.env.COOKIE_EXPIRE * 24 * 60 * 60 * 1000
+        Date.now() + 7 * 24 * 60 * 60 * 1000
       ),
       httpOnly: true,
     })
