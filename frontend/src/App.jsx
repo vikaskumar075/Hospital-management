@@ -20,7 +20,7 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/user/patient/me",
+          "https://vercel.com/vikaskumar075s-projects/hospital-management-backend/api/v1/user/patient/me",
           {
             withCredentials: true,
           }
